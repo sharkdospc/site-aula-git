@@ -35,7 +35,8 @@ mkdir nome_da_pasta
 rm nome_da_pasta
 ```
  
-## renomear um arquivo
+## renomear um 
+
 ```bash
 rm nome_da_pasta
 ```
