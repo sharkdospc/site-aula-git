@@ -1,0 +1,221 @@
+ /* Variáveis de cores e estilos */
+    :root {
+      --primary: #2d333b;
+      --secondary: #444c56;
+      --accent: #539bf5;
+      --accent-hover: #4184e4;
+      --text: #cdd9e5;
+      --background: #22272e;
+      --card-bg: #2d333b;
+      --success: #46954a;
+      --code-bg: #1c2128;
+      --header-bg: #1c2128;
+    }
+    
+    /* Reset e estilos base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 2rem;
+    }
+    
+    /* Cabeçalho */
+    header {
+      background: var(--header-bg);
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #539bf5, #46954a, #c678dd);
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+    
+    /* Conteúdo principal */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Cartões de conteúdo */
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #444c56;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+    
+    /* Listas */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Código e pré-formatação */
+    code {
+      background: var(--code-bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Fira Code', monospace;
+      color: #8ce99a;
+    }
+    
+    pre {
+      background: var(--code-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1rem 0;
+      border-left: 4px solid var(--accent);
+    }
+    
+    pre code {
+      padding: 0;
+      background: transparent;
+    }
+    
+    /* Links */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+    
+    /* Rodapé */
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: var(--header-bg);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    /* Ícones */
+    .icon {
+      margin-right: 0.5rem;
+      color: var(--accent);
+    }
+    
+    /* Layout responsivo */
+    @media (min-width: 768px) {
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      
+      .card-full {
+        grid-column: 1 / -1;
+      }
+    }
+    
+    /* Animações */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .card {
+      animation: fadeIn 0.5s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+    .card:nth-child(6) { animation-delay: 0.6s; }
+    .card:nth-child(7) { animation-delay: 0.7s; }
+    .card:nth-child(8) { animation-delay: 0.8s; }
+    .card:nth-child(9) { animation-delay: 0.9s; }
+    
+    /* Botões de cópia de código */
+    .code-block {
+      position: relative;
+    }
+    
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    
+    .code-block:hover .copy-btn {
+      opacity: 1;
+    }
+    
+    .copy-btn:hover {
+      background: var(--accent-hover);
+    }
